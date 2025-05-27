@@ -32,19 +32,25 @@
 //   }
 // }
 
-
-
 import connectDB from '../../../lib/db';
 import Order from '../../../lib/orderModel';
 
-export async function POST(request) {
-  const headers = new Headers({
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Content-Type': 'application/json',
-  });
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Content-Type': 'application/json',
+};
 
+// Handle OPTIONS preflight request
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: corsHeaders,
+  });
+}
+
+export async function POST(request) {
   try {
     await connectDB();
 
@@ -54,7 +60,7 @@ export async function POST(request) {
     if (!text) {
       return new Response(JSON.stringify({ error: 'Empty request body' }), {
         status: 400,
-        headers,
+        headers: corsHeaders,
       });
     }
 
@@ -64,7 +70,7 @@ export async function POST(request) {
     if (!name || !email || !service || !plan || !description) {
       return new Response(JSON.stringify({ error: 'Missing fields' }), {
         status: 400,
-        headers,
+        headers: corsHeaders,
       });
     }
 
@@ -73,13 +79,13 @@ export async function POST(request) {
 
     return new Response(JSON.stringify({ message: 'Order saved successfully' }), {
       status: 201,
-      headers,
+      headers: corsHeaders,
     });
   } catch (error) {
     console.error('API Error:', error);
     return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
       status: 500,
-      headers,
+      headers: corsHeaders,
     });
   }
 }
