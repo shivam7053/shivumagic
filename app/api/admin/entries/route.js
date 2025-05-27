@@ -1,7 +1,6 @@
 import connectDB from '@/lib/db';
 import Contact from '@/lib/contactModel';
 import Order from '@/lib/orderModel';
-import NextCors from 'nextjs-cors';
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'supersecret';
 
