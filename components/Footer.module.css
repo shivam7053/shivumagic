@@ -1,0 +1,41 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4B0082;
+  padding: 14px 20px;
+  border-radius: 18px;
+  margin: 12px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logoContainer {
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.textContainer {
+  flex: 1;
+  text-align: center;
+  margin: 0 16px;
+}
+
+.instagramLink {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 8px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.instagramLink:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}

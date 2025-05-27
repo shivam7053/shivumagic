@@ -1,0 +1,58 @@
+/* Background with overlay */
+.background {
+  position: relative;
+  background-image: url('/background.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 1rem;
+  overflow-x: hidden;
+}
+
+/* Dark overlay for readability */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  pointer-events: none; /* Allows clicks through overlay */
+  z-index: 0;
+}
+
+/* Main container */
+.container {
+  position: relative;
+  z-index: 1; /* On top of overlay */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 2rem 1rem;
+}
+
+/* Section styling */
+.section {
+  background-color: rgba(9, 171, 236, 0.95);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for sections - subtle lift */
+.section:hover,
+.section:focus-within {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px);
+}
+
+/* Responsive padding */
+@media (max-width: 768px) {
+  .section {
+    padding: 1.5rem;
+  }
+  .container {
+    gap: 2rem;
+    padding: 1rem 0.5rem;
+  }
+}
