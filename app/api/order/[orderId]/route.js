@@ -1,5 +1,5 @@
-import connectDB from '../../../lib/db';
-import Order from '../../../lib/orderModel';
+import connectDB from '../../../../lib/db';
+import Order from '../../../../lib/orderModel';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
